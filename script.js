@@ -434,7 +434,7 @@ function renderLearningList() {
     .map(category => `
       <div class="card">
         <h2>${escapeHtml(category)}</h2>
-        <p class="muted">${categories[category].length} Lernkarten</p>
+        <span class="badge">${categories[category].length} Lernkarten</span>
         <button class="btn" onclick="startLearning('${escapeAttr(category)}')">Lernkarten starten</button>
       </div>
     `)
