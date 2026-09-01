@@ -1,0 +1,427 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.app {
+  max-width: 720px;
+  margin: auto;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 { font-size: 30px; margin: 8px 0; }
+h2 { font-size: 22px; margin: 8px 0; }
+h3 { font-size: 18px; margin: 8px 0; }
+
+.muted { color: #6b7280; }
+.small { font-size: 13px; }
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  margin: 14px 0;
+  box-shadow: 0 5px 20px #0000000d;
+}
+
+.btn {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #111827;
+  color: white;
+  margin-top: 12px;
+}
+
+.btn.secondary { background: #e5e7eb; color: #111827; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.option.selected { border-color: #111827; background: #f9fafb; }
+.option input { margin-top: 3px; transform: scale(1.2); }
+
+.progress {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 99px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.bar { height: 100%; background: #111827; width: 0; }
+
+.badge {
+  display: inline-block;
+  background: #e5e7eb;
+  border-radius: 99px;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.score {
+  font-size: 48px;
+  font-weight: 800;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.hidden { display: none !important; }
+.error { color: #dc2626; font-weight: 600; }
+
+.loading { text-align: center; padding: 30px 10px; color: #6b7280; }
+
+.status {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Hauptbereiche */
+.home-section-title { margin-top: 28px; margin-bottom: 8px; text-align: center; }
+.home-section-title h2 { margin-bottom: 3px; }
+.home-section-title p { margin-top: 0; }
+
+/* Quiz- und Lernkarten-Auswahl */
+#quizList, #learningList { width: 100%; }
+
+/* Offene Fragen */
+textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+}
+textarea:focus { border-color: #111827; }
+
+/* Case */
+.case-box {
+  background: #f9fafb;
+  border-left: 5px solid #111827;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0 20px;
+}
+.case-title { font-size: 20px; font-weight: 800; margin: 0 0 10px; }
+.case-text { font-size: 15px; line-height: 1.6; white-space: pre-wrap; }
+
+/* Zuordnung */
+.matching-list { margin-top: 14px; }
+
+.matching-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.matching-term { font-weight: 700; font-size: 15px; line-height: 1.3; }
+
+.matching-input {
+  width: 48px;
+  height: 38px;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 800;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+}
+.matching-input:focus { border-color: #111827; }
+
+.matching-answers {
+  margin-top: 16px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 10px;
+}
+.matching-answers h3 { font-size: 16px; margin: 4px 0 8px; }
+.matching-answer { padding: 5px 0; line-height: 1.3; font-size: 14px; }
+
+.matching-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 6px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Ergebnis */
+.result-box { border-radius: 12px; padding: 14px; margin: 12px 0; }
+.result-wrong { border: 2px solid #fecaca; background: #fef2f2; }
+.result-open { border: 2px solid #fde68a; background: #fffbeb; }
+.result-correct { border: 2px solid #bbf7d0; background: #f0fdf4; }
+
+.answer-label { font-size: 13px; color: #6b7280; margin-bottom: 4px; }
+.answer-text { margin: 4px 0 12px; font-weight: 600; white-space: pre-wrap; }
+.result-match { padding: 8px 0; border-top: 1px solid #fecaca; }
+
+/* Lernkarten */
+.learning-card {
+  perspective: 1200px;
+  width: 100%;
+  min-height: 280px;
+  margin: 10px 0 12px;
+  cursor: pointer;
+}
+
+.learning-card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  transition: transform .55s ease;
+  transform-style: preserve-3d;
+}
+
+.learning-card.flipped .learning-card-inner { transform: rotateY(180deg); }
+
+.learning-card-front,
+.learning-card-back {
+  position: absolute;
+  width: 100%;
+  min-height: 280px;
+  top: 0;
+  left: 0;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 28px #00000012;
+
+  padding: 22px 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* Fallback, falls JS die Höhe aus irgendeinem Grund nicht anpassen kann:
+     lieber innerhalb der Karte scrollen, statt die Buttons darunter zu verdecken */
+  overflow-y: auto;
+}
+
+.learning-card-back { transform: rotateY(180deg); background: #f9fafb; }
+
+.learning-card-label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 10px;
+}
+
+.learning-card-question,
+.learning-card-answer {
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 750;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.learning-card-hint { margin-top: 14px; color: #9ca3af; font-size: 12px; }
+
+.learning-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.learning-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 8px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.learning-btn.no { background: #fee2e2; color: #991b1b; }
+.learning-btn.yes { background: #dcfce7; color: #166534; }
+.learning-btn:disabled { opacity: .4; cursor: not-allowed; }
+
+.learning-stat {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.learning-stat-box {
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 3px 14px #00000008;
+}
+
+.learning-stat-number { display: block; font-size: 22px; font-weight: 800; }
+.learning-stat-label { font-size: 11px; color: #6b7280; }
+
+.learning-complete { text-align: center; padding: 25px 10px; }
+.learning-complete-score { font-size: 42px; font-weight: 800; margin: 15px 0; }
+
+/* Mobile */
+@media (max-width: 600px) {
+  .app { padding: 10px; }
+  .top { margin-bottom: 12px; }
+  h1 { font-size: 25px; }
+  h2 { font-size: 19px; }
+  h3 { font-size: 17px; }
+
+  .card { padding: 13px; border-radius: 16px; margin: 10px 0; }
+
+  /* Quiz- und Lernkarten-Auswahl: 2 Karten nebeneinander */
+  #quizList, #learningList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  #quizList .card, #learningList .card {
+    margin: 0;
+    padding: 12px 9px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #quizList .card h2, #learningList .card h2 {
+    font-size: 16px;
+    line-height: 1.25;
+    margin: 2px 0 5px;
+  }
+
+  #quizList .card p, #learningList .card p {
+    font-size: 11px;
+    line-height: 1.3;
+    margin: 4px 0 7px;
+  }
+
+  #quizList .card .badge, #learningList .card .badge {
+    align-self: flex-start;
+    font-size: 10px;
+    padding: 4px 6px;
+    margin-top: auto;
+  }
+
+  #quizList .card .btn, #learningList .card .btn {
+    font-size: 12px;
+    padding: 10px 5px;
+    border-radius: 10px;
+    margin-top: 8px;
+  }
+
+  .home-section-title { margin-top: 22px; margin-bottom: 8px; text-align: center; }
+  .home-section-title h2 { font-size: 21px; font-weight: 800; }
+  .home-section-title p { font-size: 12px; }
+
+  /* Lernkarte auf Handy */
+  .learning-card { min-height: 245px; margin: 4px 0 8px; }
+  .learning-card-inner { min-height: 245px; }
+  .learning-card-front, .learning-card-back {
+    min-height: 245px;
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+  .learning-card-label { font-size: 11px; margin-bottom: 7px; }
+  .learning-card-question, .learning-card-answer { font-size: 18px; line-height: 1.35; }
+  .learning-card-hint { margin-top: 10px; font-size: 11px; }
+
+  .learning-buttons { gap: 8px; margin-top: 7px; }
+  .learning-btn { padding: 11px 5px; font-size: 13px; border-radius: 10px; }
+
+  .learning-stat { gap: 8px; margin-top: 9px; }
+  .learning-stat-box { padding: 8px; border-radius: 11px; }
+  .learning-stat-number { font-size: 19px; }
+  .learning-stat-label { font-size: 10px; }
+
+  /* Quiz-Fragen */
+  .option { padding: 11px; gap: 9px; margin: 8px 0; border-radius: 10px; }
+  .option input { transform: scale(1.1); }
+
+  textarea { min-height: 130px; padding: 11px; font-size: 15px; }
+
+  .case-box { padding: 11px; margin: 10px 0 14px; }
+  .case-title { font-size: 17px; }
+  .case-text { font-size: 13px; line-height: 1.5; }
+
+  .matching-row { grid-template-columns: minmax(0, 1fr) 42px; gap: 6px; padding: 6px 0; }
+  .matching-term { font-size: 13px; }
+  .matching-input { width: 42px; height: 34px; font-size: 14px; border-radius: 7px; }
+  .matching-answers { margin-top: 10px; padding: 9px; }
+  .matching-answer { font-size: 12px; padding: 3px 0; }
+  .matching-letter { width: 22px; height: 22px; margin-right: 4px; font-size: 11px; }
+
+  .btn { padding: 12px 13px; font-size: 14px; }
+  .score { font-size: 40px; }
+}
+
+/* Sehr kleine Handys */
+@media (max-width: 380px) {
+  .app { padding: 8px; }
+  #quizList, #learningList { gap: 6px; }
+  #quizList .card, #learningList .card { padding: 10px 7px; }
+  #quizList .card h2, #learningList .card h2 { font-size: 15px; }
+  #quizList .card .btn, #learningList .card .btn { font-size: 11px; padding: 9px 4px; }
+
+  .learning-card, .learning-card-inner, .learning-card-front, .learning-card-back {
+    min-height: 230px;
+  }
+  .learning-card-question, .learning-card-answer { font-size: 17px; }
+  .learning-btn { font-size: 12px; padding: 10px 4px; }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+  .learning-card-inner { transition: none; }
+}
