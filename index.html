@@ -859,7 +859,6 @@ textarea:focus{
 
   <div class="home-section-title">
 
-```
 <h2>
   Meine Quizze
 </h2>
@@ -867,17 +866,16 @@ textarea:focus{
 <p class="muted small">
   Fragen beantworten und Wissen testen.
 </p>
-```
 
   </div>
 
   <div id="quizList">
 
-```
+
 <div class="loading">
   Fragen werden geladen ...
 </div>
-```
+
 
   </div>
 
@@ -885,7 +883,7 @@ textarea:focus{
 
   <div class="home-section-title">
 
-```
+
 <h2>
   Meine Lernkarten
 </h2>
@@ -893,17 +891,17 @@ textarea:focus{
 <p class="muted small">
   Lernen mit Frage und Antwort.
 </p>
-```
+
 
   </div>
 
   <div id="learningList">
 
-```
+
 <div class="loading">
   Lernkarten werden geladen ...
 </div>
-```
+
 
   </div>
 
@@ -926,15 +924,15 @@ onclick="showHome()"
 
 >
 
-```
+
 ← Quiz Auswahl
-```
+
 
   </button>
 
   <div class="card">
 
-```
+
 <div
   class="muted"
   id="counter"
@@ -974,7 +972,7 @@ onclick="showHome()"
 >
   Weiter
 </button>
-```
+
 
   </div>
 
@@ -988,7 +986,7 @@ onclick="showHome()"
 
   <div class="card">
 
-```
+
 <h2 id="resultTitle"></h2>
 
 <div
@@ -1019,7 +1017,7 @@ onclick="showHome()"
 >
   Zur Quiz Auswahl
 </button>
-```
+
 
   </div>
 
@@ -1037,15 +1035,14 @@ onclick="showHome()"
 
 >
 
-```
 ← Zur Auswahl
-```
+
 
   </button>
 
   <div class="card">
 
-```
+
 <div
   class="muted"
   id="learningCounter"
@@ -1134,7 +1131,7 @@ onclick="showHome()"
   </div>
 
 </div>
-```
+
 
   </div>
 
@@ -2576,7 +2573,7 @@ function renderQuestion(){
         oninput="checkOpenAnswer()"
       ></textarea>
 
-```
+
 `;
 
 
@@ -2585,7 +2582,7 @@ $('nextBtn').disabled =
 
 
 return;
-```
+
 
 }
 
@@ -2595,7 +2592,7 @@ if(
 q.type === "matching"
 ){
 
-```
+
 $('typeHint').textContent =
   "Schreibe den Buchstaben der richtigen Antwort in das Feld";
 
@@ -2723,7 +2720,7 @@ $('nextBtn').disabled =
 
 
 return;
-```
+
 
 }
 
@@ -2731,17 +2728,17 @@ return;
 
 $('typeHint').textContent =
 
-```
+
 q.type === 'multi'
 
   ? 'Mehrere Antworten möglich'
 
   : 'Eine Antwort auswählen';
-```
+
 
 $('options').innerHTML =
 
-```
+
 q.options
 
   .map(
@@ -2785,7 +2782,7 @@ q.options
   )
 
   .join('');
-```
+
 
 $('nextBtn').disabled =
 true;
@@ -2809,22 +2806,22 @@ input.value
 
 const inputs =
 
-```
+
 [
   ...document.querySelectorAll(
     '.matching-input'
   )
 ];
-```
+
 
 const allFilled =
 
-```
+
 inputs.every(
   x =>
     x.value.trim() !== ""
 );
-```
+
 
 const q =
 currentQuiz.questions[current];
@@ -2837,14 +2834,14 @@ x.letter
 
 const allValid =
 
-```
+
 inputs.every(
   x =>
     validLetters.includes(
       x.value
     )
 );
-```
+
 
 $('nextBtn').disabled =
 !allFilled ||
@@ -2863,9 +2860,9 @@ $('openAnswer');
 
 if(!input){
 
-```
+
 return;
-```
+
 
 }
 
@@ -2887,7 +2884,7 @@ if(
 q.type === 'multi'
 ){
 
-```
+
 selected =
 
   [
@@ -2900,17 +2897,17 @@ selected =
     x =>
       x.value
   );
-```
+
 
 }
 
 else{
 
-```
+
 selected = [
   input.value
 ];
-```
+
 
 }
 
@@ -2919,7 +2916,7 @@ document
 '.option'
 )
 
-```
+
 .forEach(
   (el,i) => {
 
@@ -2936,7 +2933,7 @@ document
 
   }
 );
-```
+
 
 $('nextBtn').disabled =
 selected.length === 0;
@@ -2958,7 +2955,7 @@ if(
 q.type === "open"
 ){
 
-```
+
 const answer =
 
   $('openAnswer')
@@ -3013,7 +3010,7 @@ else{
 
 
 return;
-```
+
 
 }
 
@@ -3023,7 +3020,7 @@ if(
 q.type === "matching"
 ){
 
-```
+
 const inputs =
 
   [
@@ -3159,7 +3156,7 @@ else{
 
 
 return;
-```
+
 
 }
 
@@ -3173,7 +3170,7 @@ const chosen =
 
 const ok =
 
-```
+
 correct.length ===
 chosen.length &&
 
@@ -3181,20 +3178,20 @@ correct.every(
   (x,i) =>
     x === chosen[i]
 );
-```
+
 
 if(ok){
 
-```
+
 points +=
   q.points || 1;
-```
+
 
 }
 
 else{
 
-```
+
 wrongQuestions.push({
 
   type:"choice",
@@ -3218,7 +3215,7 @@ wrongQuestions.push({
     q.case_text || ""
 
 });
-```
+
 
 }
 
@@ -3229,17 +3226,16 @@ current >=
 currentQuiz.questions.length
 ){
 
-```
 showResult();
-```
+
 
 }
 
 else{
 
-```
+
 renderQuestion();
-```
+
 
 }
 
@@ -3255,7 +3251,7 @@ show('result');
 
 const automaticMax =
 
-```
+
 currentQuiz.questions.reduce(
 
   (sum,q) => {
@@ -3293,11 +3289,11 @@ currentQuiz.questions.reduce(
   0
 
 );
-```
+
 
 const pct =
 
-```
+
 automaticMax
 
   ? Math.round(
@@ -3309,42 +3305,42 @@ automaticMax
     )
 
   : 0;
-```
+
 
 $('resultTitle').textContent =
 
-```
+
 currentQuiz.title +
 ' abgeschlossen';
-```
+
 
 $('score').textContent =
 
-```
+
 `${points} / ${automaticMax}`;
-```
+
 
 if(
 openQuestions.length > 0
 ){
 
-```
+
 $('resultText').textContent =
 
   `${pct}% automatisch richtig. ` +
   `${openQuestions.length} offene ` +
   `Frage(n) müssen manuell bewertet werden.`;
-```
+
 
 }
 
 else{
 
-```
+
 $('resultText').textContent =
 
   `${pct}% richtig.`;
-```
+
 
 }
 
@@ -3364,7 +3360,7 @@ let html = "";
 
 wrongQuestions
 
-```
+
 .filter(
   item =>
     item.type === "choice"
@@ -3521,13 +3517,13 @@ wrongQuestions
 
   }
 );
-```
+
 
 /* ZUORDNUNG */
 
 wrongQuestions
 
-```
+
 .filter(
   item =>
     item.type === "matching"
@@ -3678,14 +3674,14 @@ wrongQuestions
 
   }
 );
-```
+
 
 /* OFFENE FRAGEN */
 
 openQuestions.forEach(
 item => {
 
-```
+
   html += `
 
     <div class="result-box result-open">
@@ -3790,7 +3786,7 @@ item => {
   `;
 
 }
-```
+
 
 );
 
@@ -3801,7 +3797,7 @@ wrongQuestions.length === 0 &&
 openQuestions.length === 0
 ){
 
-```
+
 html = `
 
   <div class="result-box result-correct">
@@ -3820,7 +3816,7 @@ html = `
   </div>
 
 `;
-```
+
 
 }
 
@@ -3856,20 +3852,20 @@ category;
 
 const cards =
 
-```
+
 LEARNING_CARDS.filter(
   card =>
     card.category === category
 );
-```
+
 
 if(
 cards.length === 0
 ){
 
-```
+
 return;
-```
+
 
 }
 
@@ -3909,11 +3905,11 @@ if(
 learningQueue.length === 0
 ){
 
-```
+
 renderLearningComplete();
 
 return;
-```
+
 
 }
 
@@ -3924,7 +3920,7 @@ learningCardFlipped = false;
 
 $('learningCounter').textContent =
 
-```
+
 `Noch ${
   learningQueue.length
 } Karte${
@@ -3932,22 +3928,22 @@ $('learningCounter').textContent =
     ? ''
     : 'n'
 }`;
-```
+
 
 const totalForProgress =
 
-```
+
 learningKnown +
 learningUnknown +
 learningQueue.length;
-```
+
 
 const completed =
 learningKnown;
 
 const progress =
 
-```
+
 totalForProgress > 0
 
   ? (
@@ -3957,14 +3953,14 @@ totalForProgress > 0
     )
 
   : 0;
-```
+
 
 $('learningBar').style.width =
 progress + '%';
 
 area.innerHTML = `
 
-```
+
 <div
   class="learning-card"
   id="activeLearningCard"
@@ -4027,7 +4023,7 @@ area.innerHTML = `
   </div>
 
 </div>
-```
+
 
 `;
 
@@ -4050,9 +4046,9 @@ $('activeLearningCard');
 
 if(!card){
 
-```
+
 return;
-```
+
 
 }
 
@@ -4082,9 +4078,8 @@ if(
 !learningCardFlipped
 ){
 
-```
 return;
-```
+
 
 }
 
@@ -4092,9 +4087,9 @@ if(
 learningQueue.length === 0
 ){
 
-```
+
 return;
-```
+
 
 }
 
@@ -4103,21 +4098,21 @@ learningQueue.shift();
 
 if(known){
 
-```
+
 learningKnown++;
-```
+
 
 }
 
 else{
 
-```
+
 learningUnknown++;
 
 learningQueue.push(
   currentCard
 );
-```
+
 
 }
 
@@ -4156,7 +4151,7 @@ $('learningBar').style.width =
 
 area.innerHTML = `
 
-```
+
 <div class="learning-complete">
 
   <div class="badge">
@@ -4183,7 +4178,7 @@ area.innerHTML = `
   </p>
 
 </div>
-```
+
 
 `;
 
@@ -4203,7 +4198,7 @@ function escapeHtml(s){
 
 return String(s).replace(
 
-```
+
 /[&<>"']/g,
 
 m => ({
@@ -4215,7 +4210,7 @@ m => ({
   "'":'&#039;'
 
 }[m])
-```
+
 
 );
 
