@@ -482,9 +482,75 @@ textarea:focus{
   margin:15px 0;
 }
 
+/* =====================================================
+   STARTSEITE  das habe ich dazugefügt  b.z
+   ===================================================== */
+
+#quizList,
+#learningList{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+#quizList .card,
+#learningList .card{
+  margin:0;
+  padding:20px;
+  border:1px solid #e5e7eb;
+  box-shadow:0 8px 25px #0000000d;
+}
+
 
 /* =====================================================
-   MOBILE
+   HANDY STARTSEITE
+   ===================================================== */
+
+@media(max-width:600px){
+
+  #quizList,
+  #learningList{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:10px;
+  }
+
+  #quizList .card,
+  #learningList .card{
+    padding:14px 12px;
+    border-radius:16px;
+    margin:0;
+  }
+
+  #quizList .card h2,
+  #learningList .card h2{
+    font-size:17px;
+    line-height:1.2;
+    margin:0 0 8px;
+  }
+
+  #quizList .card p,
+  #learningList .card p{
+    font-size:12px;
+    line-height:1.35;
+  }
+
+  #quizList .badge,
+  #learningList .badge{
+    font-size:10px;
+    padding:4px 7px;
+  }
+
+  #quizList .btn,
+  #learningList .btn{
+    font-size:13px;
+    padding:11px 8px;
+    margin-top:10px;
+    border-radius:10px;
+  }
+
+}
+/* =====================================================
+   MOBILE oben bis hier ist neu b.z
    ===================================================== */
 
 @media(max-width:600px){
